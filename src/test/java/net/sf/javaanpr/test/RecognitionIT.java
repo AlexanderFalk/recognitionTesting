@@ -46,6 +46,7 @@ public class RecognitionIT {
     //    B/W images load without a problem: for now - using snapshots/test_041.jpg
     @Test
     public void intelligenceSingleTest() throws IOException, ParserConfigurationException, SAXException {
+        logger.info("####### RUNNING: intelligenceSingleTest ######");
         final String image = "snapshots/test_041.jpg";
         CarSnapshot carSnap = new CarSnapshot(image);
         assertNotNull("carSnap is null", carSnap);
@@ -67,6 +68,7 @@ public class RecognitionIT {
      */
     @Test
     public void testAllSnapshots() throws Exception {
+        logger.info("####### RUNNING: testAllSnapshots ######");
         String snapshotDirPath = "src/test/resources/snapshots";
         String resultsPath = "src/test/resources/results.properties";
         InputStream resultsStream = new FileInputStream(new File(resultsPath));
@@ -109,6 +111,7 @@ public class RecognitionIT {
                 correctCount++;
                 correct = true;
             }
+            System.out.println( correctCount);
             carSnap.close();
             counter++;
             logger.debug("Finished recognizing {} ({} of {})\t{}", snapName, counter, snapshots.length,
